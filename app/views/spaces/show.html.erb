@@ -1,2 +1,21 @@
 <h1>Spaces#show</h1>
 <p>Find me in app/views/spaces/show.html.erb</p>
+
+<h1><%= @space.name %></h1>
+
+<div>
+<% @space.bookmarks.each do |bookmark| %>
+<%= bookmark.movie.title %>
+<% end %>
+</div>
+
+  
+
+  <%= link_to "Delete",
+  space_path(@space),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+
+<%= link_to "Create a new bookmark",
+  new_space_bookmark_path(@space)
+%>
