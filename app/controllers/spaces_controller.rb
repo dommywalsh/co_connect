@@ -1,11 +1,11 @@
 class SpacesController < ApplicationController
-  def new
+  def index
   end
 
   def show
   end
 
-  def index
+  def new
   end
 
   def create
