@@ -1,2 +1,18 @@
-<h1>Spaces#index</h1>
-<p>Find me in app/views/spaces/index.html.erb</p>
+<h1>Spaces-index Page</h1>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.deskmag.com/images/articleimages/2021_coworking_images/1200x530/Uncommon_London_2019.jpg)">
+  <div class="container">
+    <h1>All the coworking spaces at your fingertips</h1>
+    <p>Some subtext</p>
+    <a class="btn btn-primary" href="#">Apply now</a>
+  </div>
+</div>
+
+<div class="container mt-4 ">
+  <div class="cards d-grid p-2">
+  <% @spaces.each do |space| %>
+    <div class="card-category"><%=link_to list.name, space_path(space)%>
+    </div>
+  <% end %>
+  </div>
+</div>
