@@ -7,7 +7,7 @@
 <h1>Address: <%= @space.address %></h1>
 
 
-<%= link_to "Book now", "#", class: "btn-ghost" %>
+<button class="btn-ghost"><%=link_to "Book now", new_space_booking_path(@space) %></button>
 
 
 
