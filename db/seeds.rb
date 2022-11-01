@@ -51,3 +51,4 @@ end
 
 puts "#{Booking.count} bookings created"
 puts "Your seeds are now ready for action"
+ 
