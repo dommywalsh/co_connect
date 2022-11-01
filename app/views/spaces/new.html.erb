@@ -7,6 +7,9 @@
         <h3>Add your new space</h3>
         <%= simple_form_for @space do |f| %>
           <%= f.input :name, placeholder: 'My amazing space' %>
+          <%= f.input :address, placeholder: '9 bolt way' %>
+          <%= f.input :price, placeholder: '$150 per week' %>
+          <%= f.input :description, placeholder: 'Great view from the desk' %>
           <%= f.submit class: 'btn btn-flat' %>
         <% end %>
       </div>
