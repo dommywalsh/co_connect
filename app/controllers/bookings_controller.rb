@@ -1,4 +1,9 @@
 class BookingsController < ApplicationController
+
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def new
     @booking = Booking.new
     @space = Space.find(params[:space_id])
@@ -6,11 +11,11 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-
     @booking.user = current_user
     @space = Space.find(params[:space_id])
+    @booking.space = @space
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to space_booking_path(@space, @booking)
     else
       render :new, status: :unprocessable_entity
     end
