@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def show
     @booking = Booking.find(params[:id])
     @space = Space.find(params[:space_id])
@@ -15,8 +14,11 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    # user associated with booking is the current user
     @space = Space.find(params[:space_id])
+    # the associated space is found in the url params
     @booking.space = @space
+    # the space associated with the booking is the space in the url params
     if @booking.save
       redirect_to space_booking_path(@space, @booking)
     else
