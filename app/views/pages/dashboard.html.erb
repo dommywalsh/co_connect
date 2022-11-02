@@ -11,3 +11,43 @@
 </div>
 
 
+<%# My Spaces Tab %>
+<h2>My Spaces</h2>
+<% if @spaces %>
+  <div>
+    <% @spaces.each do |space| %>
+      <div class="card-myspace">
+        <h4><%= space.name %></h4>
+          <%# booking requests %>
+        <div>
+          <h6>Booking Requests:</h6>
+          <ol>
+          <% space.bookings.each do |booking|%>
+            <% if booking.status == "pending" %>
+              <li><p><%= booking.user.email %></p></li>
+              <p>Confirm Booking?</p>
+              <%= link_to accept_booking_path(booking), data: {turbo_method: :patch} do %>
+                <p>YES</p>
+              <% end %>
+              <%= link_to reject_booking_path(booking), data: {turbo_method: :patch} do %>
+                <p>NO<p>
+              <% end %>
+            <% end %>
+          <% end %>
+          </ol>
+        </div>
+        <%# confirmed/current bookings %>
+        <div>
+          <h6>Confirmed Bookings:</h6>
+            <ol>
+            <% space.bookings.each do |booking|%>
+              <li><%= booking.user.email %></li>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+      <% end%>
+  </div>
+<% else %>
+  <h4>You aint got no Spaces</h4>
+<% end %>
