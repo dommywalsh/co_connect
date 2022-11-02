@@ -19,12 +19,20 @@ User.create(
   bio: Faker::Quote.yoda
 )
 
+User.create(
+  email: Faker::Internet.email,
+  password: "123456",
+  first_name: Faker::Name.first_name ,
+  last_name: Faker::Name.last_name ,
+  phone_number: Faker::PhoneNumber.cell_phone,
+  bio: Faker::Quote.yoda
+)
+
 
 puts "#{User.count} users created"
 puts "creating spaces"
 
 User.all.each do |user|
-  2.times do
     Space.create(
       user: user,
       name: "Makers of Barcelona",
@@ -105,11 +113,6 @@ User.all.each do |user|
       description: "Depot Lab is a new coworking space in Barcelona for creative, innovative and open minded entrepreneurs and companies. It is a 2nd home for already a lot of (inter-)national companies where they can establish, grow, collaborate, learn and network.A pioneer in Barcelona coworking for creatives, makers and 3D printing",
       price: rand(10..30)
     )
-
-
-  end
-
-
 end
 
 puts "#{Space.count} spaces created"
