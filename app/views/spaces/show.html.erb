@@ -1,19 +1,40 @@
-<h1>Spaces#show</h1>
-<p>Find me in app/views/spaces/show.html.erb</p>
-
-<h1>Name: <%= @space.name %></h1>
-<h1>Price: <%= @space.price %> euros</h1>
-<h1>Description: <%= @space.description %></h1>
-<h1>Address: <%= @space.address %></h1>
 
 
-<%= link_to "Book now", "#", class: "btn-ghost" %>
+<div class="container">
 
+  <div class= "d-flex">
+    <div class="card" style="width: 25rem;">
+    <%= image_tag "1.png" %>
+      <img src= "1.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= @space.name %></h5>
+        <p class="card-text">A lovely quiet workspace with likeminded people.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"> Price :<%=  @space.price %></li>
+        <li class="list-group-item"> <%= @space.description %></li>
+        <li class="list-group-item"> Address :<%= @space.address %></li>
+      </ul>
+      <div class="card-body">
+      <button class="btn-ghost"><%=link_to "Book now", new_space_booking_path(@space) %></button>
+      <button class="btn-ghost">
+          <%= link_to "Delete",
+          space_path(@space),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+            %>
+      </button>
+      </div>
+    </div>
 
-
-  <%= link_to "Delete",
-  space_path(@space),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+    <div>
+      <h3>Book this space</h3>
+      <%= simple_form_for [@space, @booking] do |f| %>
+        <%= f.input :start_date, as: :date %>
+        <%= f.input :end_date, as: :date %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
