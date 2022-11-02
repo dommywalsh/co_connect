@@ -16,6 +16,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @space = Space.find(params[:space_id])
+    @days = (@booking.end_date - @booking.start_date).to_i
+    @total_price = @days * @space.price
+    @booking.price = @total_price
     @booking.space = @space
     if @booking.save
       redirect_to space_booking_path(@space, @booking)

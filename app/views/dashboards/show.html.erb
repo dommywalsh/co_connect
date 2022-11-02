@@ -1,0 +1,12 @@
+<h3>Here are your current listed spaces:</h3>
+
+<div class="container mt-4 ">
+  <div class="cards d-grid p-2">
+  <% if @user.booking %>
+  <% @user.bookings.each do |booking| %>
+    <div class="card-category"><%=link_to booking.user, space_path(space)%>
+    </div>
+  <% end %>
+  <% end %>
+  </div>
+</div>
