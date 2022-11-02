@@ -20,7 +20,7 @@ class SpacesController < ApplicationController
     @space.user = current_user
 
     if @space.save
-      redirect_to space_path(@space)
+      redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
     end

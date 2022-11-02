@@ -1,3 +1,8 @@
+<h3>Welcome to your dashboard <%= @user.email %></h3>
+<br>
+<br>
+
+
 <%# My Spaces Tab %>
 <h2>My Spaces</h2>
 <div class="container mt-4 ">
@@ -41,30 +46,34 @@
   <% end %>
 </div>
 
+<br>
+
 <%# My Bookings %>
 
-<h2>My Bookings</h2>
-<br>
-<% if @bookings %>
-  <div class="container mt-4 ">
-    <div class="row">
-      <div class="col">
 
-          <h5>Current bookings</h5>
+<h2>My Bookings</h2>
+
+<div class="container mt-4 ">
+  <% if @bookings %>
+    <div class="cards d-grid p-2">
+      <div class="card-myspace">
+          <h4>Current bookings</h4>
             <ol>
               <% @current_bookings.each do |booking| %>
                 <li><%=booking.space.name%></li>
               <% end %>
             </ol>
-          <br>
-          <h5>Future bookings</h5>
+      </div>
+      <div class="card-myspace">
+          <h4>Pending bookings</h4>
             <ol>
               <% @future_bookings.each do |booking| %>
               <li><%=booking.space.name%></li>
               <% end %>
             </ol>
-            <br>
-        <h5>Past bookings</h5>
+      </div>
+      <div class="card-myspace">
+        <h4>Past bookings</h4>
           <ol>
             <% @past_bookings.each do |booking| %>
             <li> <%=booking.space.name%></li>
@@ -72,5 +81,5 @@
           </ol>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
