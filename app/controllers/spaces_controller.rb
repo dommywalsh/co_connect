@@ -2,11 +2,13 @@ class SpacesController < ApplicationController
 
   def index
     @spaces = Space.all
+    # maybe do not include "my spaces in this"
   end
 
   def show
     @space = Space.find(params[:id])
     @booking = Booking.new
+    # reviews if possible
   end
 
   def new

@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @spaces
+    @featured_spaces = Space.all.sample(6)
   end
 
   def dashboard
