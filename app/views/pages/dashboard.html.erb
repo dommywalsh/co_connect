@@ -1,0 +1,13 @@
+
+
+<div class="container mt-4 ">
+  <div class="cards d-grid p-2">
+    <% if @user.bookings %>
+      <% @user.bookings.each do |booking| %>
+        <div class="card-category">
+        <p>Booked at: <%= booking.space.name %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
