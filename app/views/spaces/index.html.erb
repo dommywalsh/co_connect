@@ -1,5 +1,3 @@
-
-
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.deskmag.com/images/articleimages/2021_coworking_images/1200x530/Uncommon_London_2019.jpg)">
   <div class="container">
     <h1>The world's best coworking spaces at your fingertips</h1>
@@ -9,6 +7,14 @@
 </div>
 
 <div class="container mt-4 ">
+<%= form_with url: spaces_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a coworking space"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
   <div class="cards d-grid p-2">
   <% @spaces.each do |space| %>
     <div class="card-category"><%=link_to space.name, space_path(space)%>
