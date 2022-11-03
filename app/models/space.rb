@@ -1,7 +1,6 @@
 class Space < ApplicationRecord
   belongs_to :user
   has_many :bookings
-
   has_one_attached :image
 
   include PgSearch::Model
@@ -11,5 +10,4 @@ class Space < ApplicationRecord
               using: {
                 tsearch: { any_word: true }
 }
-
 end
