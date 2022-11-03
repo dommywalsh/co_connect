@@ -17,3 +17,5 @@ class PagesController < ApplicationController
     @past_bookings = @user.bookings.select { |booking| booking.status == "rejected" }
   end
 end
+
+
