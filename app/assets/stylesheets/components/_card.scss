@@ -70,3 +70,47 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 18px;
+}
+
+.card-trip > img {
+  height: 140px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  margin-top: 4px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 10px;
+  top: -135px;
+  width: 32px;
+  border: 3px black;
+  box-shadow: 2px;
+}

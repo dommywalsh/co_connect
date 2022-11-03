@@ -21,7 +21,7 @@
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
 
-    <div class="cards d-grid p-2 overflow">
+    <div class="cards d-grid p-2">
       <%  @spaces.each do |space| %>
         <%= render "spaces/card", space: space %>
       <% end %>
