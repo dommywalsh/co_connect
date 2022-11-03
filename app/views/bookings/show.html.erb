@@ -1,18 +1,17 @@
 <div class="container">
-
-  <div class= "d-flex">
-    <div class="card" style="width: 25rem;">
-    <%= image_tag "1.png" %>
-      <div class="card-body">
-      <h4 class="card-title">Your Booking:</h5>
-        <h5 class="card-title"><%= @space.name %></h5>
-        <p class="card-text">A lovely quiet workspace with likeminded people.</p>
-      </div>
-      <ul class="list-group list-group-flush">
-      <li class="list-group-item"> Total days booked: <%=@days %></li>
-        <li class="list-group-item"> Total Price: <%= @total_price  %> rand</li>
-        <li class="list-group-item"> <%= @space.description %></li>
-        <li class="list-group-item"> Address :<%= @space.address %></li>
-        <li class="list-group-item"> Booking status: <%= @booking.status %></li>
-      </ul>
+  <div class= "d-flex justify-content-center">
+    <div class="card text-center" style="width: 25rem;">
+      <h5>Your booking is: <%=  @booking.status%></h5>
+        <%= image_tag "1.png" %>
+        <div class="card-body">
+          <h4 class="card-title">Your Booking:</h5>
+          <h5 class="card-title"><%= @space.name %></h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"> Start Date: <%=@booking.start_date %></li>
+          <li class="list-group-item"> End Date: <%=@booking.end_date %></li>
+          <li class="list-group-item"> Total days booked: <%=@days %></li>
+          <li class="list-group-item"> Total Price: <%= @total_price  %> rand</li>
+        </ul>
     </div>
+  </div>
+</div>

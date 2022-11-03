@@ -16,6 +16,9 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     # user associated with booking is the current user
     @space = Space.find(params[:space_id])
+    @days = (@booking.end_date - @booking.start_date).to_i
+    @total_price = @days * @space.price
+    @booking.price = @total_price
     # the associated space is found in the url params
     @booking.space = @space
     # the space associated with the booking is the space in the url params
@@ -26,14 +29,20 @@ class BookingsController < ApplicationController
     end
   end
 
-  def accept_booking
+  def accept
     @booking = Booking.find(params[:id])
-    @booking.update(status: 1)
+    @booking.status = "confirmed"
+    @booking.save
+
+    redirect_to dashboard_path
   end
 
-  def reject_booking
+  def reject
     @booking = Booking.find(params[:id])
-    @booking.update(status: 2)
+    @booking.status = "rejected"
+    @booking.save
+
+    redirect_to dashboard_path
   end
 
   private
@@ -41,4 +50,5 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:price, :start_date, :end_date, :user_id, :space_id)
   end
+
 end

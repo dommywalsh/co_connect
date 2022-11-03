@@ -8,21 +8,14 @@
       <img src= "1.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title"><%= @space.name %></h5>
-        <p class="card-text">A lovely quiet workspace with likeminded people.</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"> Price :<%=  @space.price %></li>
-        <li class="list-group-item"> <%= @space.description %></li>
-        <li class="list-group-item"> Address :<%= @space.address %></li>
+        <li class="list-group-item"> Description: <%= @space.description %></li>
+        <li class="list-group-item"> Address: <%= @space.address %></li>
+        <li class="list-group-item"> Price: <%=  @space.price %>$ per day</li>
       </ul>
       <div class="card-body">
-      <button class="btn-ghost"><%=link_to "Book now", new_space_booking_path(@space) %></button>
-      <button class="btn-ghost">
-          <%= link_to "Delete",
-          space_path(@space),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-            %>
-      </button>
+
       </div>
     </div>
 
@@ -36,5 +29,3 @@
     </div>
   </div>
 </div>
-
-
