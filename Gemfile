@@ -8,6 +8,8 @@ gem "rails", "~> 7.0.4"
 
 gem "devise"
 
+gem "pg_search"
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -82,3 +84,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+gem "dotenv-rails", groups: [:development, :test]
+gem "cloudinary"
