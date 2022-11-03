@@ -17,5 +17,4 @@ class Space < ApplicationRecord
               using: {
                 tsearch: { any_word: true }
 }
-
 end
