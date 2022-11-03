@@ -27,6 +27,18 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
   <div class="cards d-grid p-2">
+  <div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title here</h2>
+      <p>Short description here!</p>
+    </div>
+    <h2 class="card-trip-pricing">£99.99</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+
   <% @spaces.each do |space| %>
     <% if space.images.attached? %>
     <div class="card-category"style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path space.images.first.key, height: 300, crop: :fill %>')"
