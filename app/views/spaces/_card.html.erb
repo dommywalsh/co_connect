@@ -1,0 +1,21 @@
+<div class="card-trip">
+  <% if space.images.attached? %>
+    <%= cl_image_tag space.images.first.key %>
+  <% else %>
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <% end %>
+
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= space.name %></h2>
+      <p><%= space.description.truncate(100) %></p>
+    </div>
+    <h2 class="card-trip-pricing">£<%= space.price %></h2>
+    <% if space.user.avatar.attached? %>
+      <%= cl_image_tag space.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+      <% else %>
+      <img src="https://kitt.lewagon.com/placeholder/users/gabirein" class="card-trip-user avatar-bordered" />
+    <% end %>
+
+  </div>
+</div>
