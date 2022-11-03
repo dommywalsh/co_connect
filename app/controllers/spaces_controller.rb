@@ -1,6 +1,7 @@
 class SpacesController < ApplicationController
 
   def index
+    # @image = @space.image
     if params[:query].present?
       @spaces = Space.search_by_name_and_description(params[:query])
     else
@@ -32,6 +33,6 @@ class SpacesController < ApplicationController
   private
 
   def space_params
-    params.require(:space).permit(:name, :address, :price, :description, :user_id, :image)
+    params.require(:space).permit(:name, :address, :price, :description, :user_id, images: [])
   end
 end
