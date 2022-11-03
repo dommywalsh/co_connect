@@ -2,8 +2,8 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://assets.entrepreneur.com/content/3x2/2000/20170309164825-SCAD-workplace-cropped.jpeg)">
   <div class="container">
     <h1>The world's best coworking spaces at your fingertips</h1>
-    <p>Finding your ideal work-space just became that much easier</p>
-    <button class="btn-ghost"><%=link_to "See our spaces", spaces_path%></button>
+    <p>Finding your ideal work-space just became so much easier</p>
+    <button class="btn-ghost"><%=link_to "See the spaces", spaces_path%></button>
   </div>
 </div>
 
@@ -23,10 +23,13 @@
   <div class="featured-header">
     <h2>Featured Spaces</h2>
   </div>
-  <div class="cards-home">
+   <div class="cards d-grid p-2">
     <% @featured_spaces.each do |space| %>
-      <div class="card-space-feature">
-        <p><%= space.name %></p>
+    <% if space.images.attached? %>
+    <div class="card-category"style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path space.images.first.key, height: 300, crop: :fill %>')"
+>   <% else %>
+    <div class="card-category"><%=link_to space.name, space_path(space)%>
+    <% end %>
       </div>
     <% end %>
   </div>
