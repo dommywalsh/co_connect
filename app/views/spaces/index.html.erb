@@ -6,6 +6,7 @@
   </div>
 </div>
 
+<div class="container mt-4 ">
 <%= form_with url: spaces_path, method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
     params[:query],
@@ -14,8 +15,6 @@
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
-
-<div class="container mt-4 ">
   <div class="cards d-grid p-2">
   <% @spaces.each do |space| %>
     <div class="card-category"><%=link_to space.name, space_path(space)%>

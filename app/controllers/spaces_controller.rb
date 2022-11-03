@@ -1,10 +1,10 @@
 class SpacesController < ApplicationController
 
   def index
-    unless params[:query].present?
-      @spaces = Space.all
-    else
+    if params[:query].present?
       @spaces = Space.search_by_name_and_description(params[:query])
+    else
+      @spaces = Space.all
     end
   end
 
