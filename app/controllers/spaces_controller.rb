@@ -1,12 +1,24 @@
 class SpacesController < ApplicationController
 
   def index
+
     # @image = @space.image
     if params[:query].present?
+
+     if params[:query].present?
+
       @spaces = Space.search_by_name_and_description(params[:query])
     else
       @spaces = Space.all
     end
+   
+    @markers = @spaces.geocoded.map do |space|
+      {
+        lat: space.latitude,
+        lng: space.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { space: space }),
+        image_url: helpers.asset_url("LogoWhite.png")
+      }
   end
 
   def show
