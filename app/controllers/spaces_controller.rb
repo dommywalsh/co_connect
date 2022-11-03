@@ -1,8 +1,11 @@
 class SpacesController < ApplicationController
 
   def index
-    @spaces = Space.all
-    # maybe do not include "my spaces in this"
+    if params[:query].present?
+      @spaces = Space.search_by_name_and_description(params[:query])
+    else
+      @spaces = Space.all
+    end
   end
 
   def show

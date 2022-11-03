@@ -14,14 +14,11 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    # user associated with booking is the current user
     @space = Space.find(params[:space_id])
     @days = (@booking.end_date - @booking.start_date).to_i
     @total_price = @days * @space.price
     @booking.price = @total_price
-    # the associated space is found in the url params
     @booking.space = @space
-    # the space associated with the booking is the space in the url params
     if @booking.save
       redirect_to space_booking_path(@space, @booking)
     else
@@ -50,5 +47,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:price, :start_date, :end_date, :user_id, :space_id)
   end
-
 end
