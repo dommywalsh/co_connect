@@ -3,7 +3,7 @@
     <div class="card text-center" style="width: 25rem;">
       <h5>Your booking is: <%=  @booking.status%></h5>
         <% if @space.images.attached? %>
-        <%= cl_image_tag space.images.second.key %>
+        <%= cl_image_tag @space.images.first.key %>
         <% else %>
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img-top" alt="..."/>
       <% end %>
