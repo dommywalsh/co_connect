@@ -1,8 +1,5 @@
-
-
-
-<div class="container d-flex">
-  <div class= "d-flex">
+<div class="container p-5 ">
+  <div class="d-flex justify-content-center">
     <div class="card" style="width: 25rem;">
       <% if @space.image.attached? %>
       <%= cl_image_tag @space.image.key %>
@@ -16,7 +13,7 @@
         <li class="list-group-item"> Description: <%= @space.description %></li>
         <li class="list-group-item"> Address: <%= @space.address %></li>
         <li class="list-group-item"> Price: <%=  @space.price %> Euros per day</li>
-       <div>
+       <div class="p-2">
       <h3>Book this space</h3>
       <%= simple_form_for [@space, @booking] do |f| %>
         <%= f.input :start_date, as: :date %>

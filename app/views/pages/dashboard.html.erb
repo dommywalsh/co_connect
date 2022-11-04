@@ -19,12 +19,12 @@
                           <%= cl_image_tag booking.user.avatar.key, class: "card-trip-user avatar-bordered" %>
                           <div class="card-product-infos">
                             <h2><%= booking.user.first_name.capitalize %> <%= booking.user.last_name.capitalize %></h2>
-                            <p>Dates: From <%= booking.start_date.strftime("%d %B") %> to: <%= booking.end_date.strftime("%d %B") %>for $<%= booking.price %></p>
+                            <p>Dates: From <%= booking.start_date.strftime("%d %B") %> to: <%= booking.end_date.strftime("%d %B") %> for $<%= booking.price %></p>
                             <p class="mt-2">Booked on: <%= booking.created_at.strftime("%d %B") %></p>
                           </div>
                         <div>
-                          <%= link_to "✅", accept_booking_path(booking), data: {turbo_method: :patch} %>
-                          <%= link_to "❌", reject_booking_path(booking), data: {turbo_method: :patch} %>
+                          <p class="remove-text-decoration"><%= link_to "✅", accept_booking_path(booking), data: {turbo_method: :patch} %></p>
+                          <p class="remove-text-decoration"><%= link_to "❌", reject_booking_path(booking), data: {turbo_method: :patch} %></p>
                         </div>
                       </div>
                   <% end %>

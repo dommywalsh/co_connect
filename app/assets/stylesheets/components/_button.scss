@@ -44,6 +44,12 @@
   color: white;
 }
 
+.remove-text-decoration {
+  a {
+    text-decoration: none;
+  }
+}
+
 .btn-primary {
   background: #DDCE8D;
   color: #2A3332;
