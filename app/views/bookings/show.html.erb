@@ -2,7 +2,11 @@
   <div class= "d-flex justify-content-center">
     <div class="card text-center" style="width: 25rem;">
       <h5>Your booking is: <%=  @booking.status%></h5>
-        <%= image_tag "1.png" %>
+        <% if @space.images.attached? %>
+        <%= cl_image_tag space.images.second.key %>
+        <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img-top" alt="..."/>
+      <% end %>
         <div class="card-body">
           <h4 class="card-title">Your Booking:</h5>
           <h5 class="card-title"><%= @space.name %></h5>
@@ -15,3 +19,4 @@
     </div>
   </div>
 </div>
+
