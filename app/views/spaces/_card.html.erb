@@ -1,8 +1,8 @@
 <div class="card-trip rounded">
-  <% if space.images.attached? %>
-    <%= cl_image_tag space.images.first.key %>
+  <% if space.image.attached? %>
+    <%= cl_image_tag space.image.key %>
   <% else %>
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
   <% end %>
 
   <div class="card-trip-infos">
