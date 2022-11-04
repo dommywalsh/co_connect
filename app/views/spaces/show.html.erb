@@ -1,8 +1,8 @@
 <div class="container p-5 ">
   <div class="d-flex justify-content-center">
     <div class="card" style="width: 25rem;">
-      <% if @space.images.attached? %>
-      <%= cl_image_tag @space.images.first.key %>
+      <% if @space.image.attached? %>
+      <%= cl_image_tag @space.image.key %>
       <% else %>
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img-top" alt="..."/>
       <% end %>

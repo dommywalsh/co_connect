@@ -1,7 +1,8 @@
 .btn-ghost {
-  color: #121311;
-  border: 1px solid #73a942;
   padding: 8px 24px;
+  background: #DDCE8D;
+  color: #2A3332;
+  border-color: #DDCE8D;
   border-radius: 50px;
   font-weight:bolder;
   opacity: 0.6;
@@ -10,7 +11,9 @@
 }
 
 .btn-ghost:hover {
-  opacity: 3;
+  color: #DDCE8D;
+  background: #2A3332;
+  border-color: #2A3332;
 }
 
 .btn-flat {
@@ -45,4 +48,18 @@
   a {
     text-decoration: none;
   }
+.btn-primary {
+  background: #DDCE8D;
+  color: #2A3332;
+  border-color: #DDCE8D;
+}
+
+.btn-primary:hover {
+  color: #DDCE8D;
+  background: #2A3332;
+  border-color: #2A3332;
+}
+
+.form-control{
+  border-color: #DDCE8D;
 }
