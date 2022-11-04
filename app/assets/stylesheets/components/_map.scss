@@ -7,3 +7,15 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.mapboxgl-canvas {
+  border-radius: 25px;
+}
+
+.card-overflow {
+  height: 100%;
+  overflow: scroll;
+}
+
+.map-card-container {
+  height: 600px;
+}
