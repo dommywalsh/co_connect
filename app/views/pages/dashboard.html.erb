@@ -1,11 +1,14 @@
 <%# My Spaces Tab %>
 <div class= "container pt-5">
-    <h2>Your available spaces</h2>
+<div class="text-center">
+<h2>Your available spaces</h2>
+</div>
+
     <div class="container mt-4 ">
       <% if @spaces %>
         <div class="cards d-grid p-2">
           <% @spaces.each do |space| %>
-            <div class="card-myspace border border-dark border-3 p-3">
+            <div class="card-myspace border border-dark border-3 p-3 rounded">
               <h4><%= space.name %></h4>
                 <%# booking requests %>
               <div>
@@ -67,19 +70,19 @@
   <div class="container mt-4 ">
     <% if @bookings %>
       <div class="cards d-grid p-2">
-        <div class="card-myspace border border-dark border-3 rounded-pill p-3">
+        <div class="card-myspace border border-dark border-3 p-3 rounded">
             <h4>Confirmed bookings:</h4>
               <ol>
                 <% @current_bookings.each do |booking| %>
-                  <li><%=booking.space.name%></li>
+                  <li><%=booking.space.name%> | Dates: <%=booking.start_date%> - <%=booking.end_date%></li>
                 <% end %>
               </ol>
         </div>
-        <div class="card-myspace border border-dark border-3 rounded-pill p-3">
+        <div class="card-myspace border border-dark border-3 p-3 rounded">
             <h4>Pending bookings:</h4>
               <ol>
                 <% @future_bookings.each do |booking| %>
-                <li><%=booking.space.name%></li>
+                <li><%=booking.space.name%> | Dates: <%=booking.start_date%> - <%=booking.end_date%></li>
                 <% end %>
               </ol>
         </div>
