@@ -1,24 +1,7 @@
-
-<div class="card-trip rounded">
-  <% if space.image.attached? %>
-    <%= cl_image_tag space.image.key %>
-  <% else %>
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <% end %>
-
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= space.name %></h2>
-    </div>
-    <h2 class="card-trip-pricing">£<%= space.price %></h2>
-    <% if space.user.avatar.attached? %>
-      <%= cl_image_tag space.user.avatar.key, class: "card-trip-user avatar-bordered" %>
-
 <%= link_to space_path(space) do %>
   <div class="card-trip rounded">
       <% if space.images.attached? %>
         <%= cl_image_tag space.images.first.key %>
-
       <% else %>
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
       <% end %>
