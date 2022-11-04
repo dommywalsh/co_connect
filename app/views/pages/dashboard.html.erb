@@ -15,7 +15,7 @@
       <% if @spaces %>
         <div class="cards d-grid p-2">
           <% @spaces.each do |space| %>
-            <div class="card-myspace border border-dark border-3 rounded-pill ">
+            <div class="card-myspace border border-dark border-3 rounded-pill p-3">
               <h4><%= space.name %></h4>
                 <%# booking requests %>
               <div>
@@ -63,16 +63,16 @@
   <div class="container mt-4 ">
     <% if @bookings %>
       <div class="cards d-grid p-2">
-        <div class="card-myspace">
-            <h4>Confirmed bookings</h4>
+        <div class="card-myspace border border-dark border-3 rounded-pill p-3">
+            <h4>Confirmed bookings:</h4>
               <ol>
                 <% @current_bookings.each do |booking| %>
                   <li><%=booking.space.name%></li>
                 <% end %>
               </ol>
         </div>
-        <div class="card-myspace">
-            <h4>Pending bookings</h4>
+        <div class="card-myspace border border-dark border-3 rounded-pill p-3">
+            <h4>Pending bookings:</h4>
               <ol>
                 <% @future_bookings.each do |booking| %>
                 <li><%=booking.space.name%></li>
