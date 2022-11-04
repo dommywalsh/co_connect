@@ -15,7 +15,7 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item"> Description: <%= @space.description %></li>
         <li class="list-group-item"> Address: <%= @space.address %></li>
-        <li class="list-group-item"> Price: <%=  @space.price %> Euros per day</li>
+        <li class="list-group-item"> Price: <%=  @space.price %> Euros/day</li>
        <div>
       <h3>Book this space</h3>
       <%= simple_form_for [@space, @booking] do |f| %>
