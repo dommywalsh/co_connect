@@ -5,11 +5,10 @@
         <h3>Add your new space</h3>
         <%= simple_form_for @space do |f| %>
           <%= f.input :name, placeholder: 'My amazing space' %>
-          <%= f.input :address, placeholder: '9 bolt way' %>
-          <%= f.input :price, placeholder: '$15 per day' %>
-          <%= f.input :description, placeholder: 'Great view from the desk' %>
+          <%= f.input :address, placeholder: '18 Clarievaux road, Kalk bay , Cape Town' %>
+          <%= f.input :price, placeholder: 'Please insert a daily rate in Euros' %>
+          <%= f.input :description, placeholder: 'Tell us about your workspace and why we would like to work there..' %>
           <%= f.input :images, as: :file, input_html: { multiple: true } %>
-           <%=f.input :image, placeholder: 'Add a pic' %>
           <%= f.submit class: 'btn-ghost' %>
         <% end %>
       </div>
