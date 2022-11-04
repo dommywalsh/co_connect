@@ -9,37 +9,17 @@
 </div>
 <%# My Spaces Tab %>
 
-  <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">My Spaces</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">An item</li>
-      <li class="list-group-item">A second item</li>
-      <li class="list-group-item">A third item</li>
-    </ul>
-    <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-  </div>
-
-
-
-<div class= "row">
-  <div class = "col">
-   <h2>My Spaces</h2>
+<div class= "container text-center">
+   <h2>Your available spaces</h2>
     <div class="container mt-4 ">
       <% if @spaces %>
         <div class="cards d-grid p-2">
           <% @spaces.each do |space| %>
-            <div class="card-myspace">
+            <div class="card-myspace border border-dark border-3 rounded-pill ">
               <h4><%= space.name %></h4>
                 <%# booking requests %>
               <div>
-                <h6>Booking Requests:</h6>
+                <h6 class="text-dark" >Booking Requests:</h6>
                 <ol>
                 <% space.bookings.each do |booking|%>
                   <% if booking.status == "pending" %>
@@ -57,7 +37,7 @@
               </div>
               <%# confirmed/current bookings %>
               <div>
-                <h6>Confirmed Bookings:</h6>
+                <h6 class="text-dark">Confirmed Bookings:</h6>
                   <ol>
                   <% space.bookings.each do |booking|%>
                     <li><%= booking.user.email %></li>
@@ -71,47 +51,37 @@
         <h4>You aint got no Spaces</h4>
       <% end %>
     </div>
-  </div>
 </div>
 
 <br>
 
 <%# My Bookings %>
 
+<div class="container text-center ">
+  <h2>My Bookings</h2>
 
-<h2>My Bookings</h2>
-
-<div class="container mt-4 ">
-  <% if @bookings %>
-    <div class="cards d-grid p-2">
-      <div class="card-myspace">
-          <h4>Confirmed bookings</h4>
-            <ol>
-              <% @current_bookings.each do |booking| %>
+  <div class="container mt-4 ">
+    <% if @bookings %>
+      <div class="cards d-grid p-2">
+        <div class="card-myspace">
+            <h4>Confirmed bookings</h4>
+              <ol>
+                <% @current_bookings.each do |booking| %>
+                  <li><%=booking.space.name%></li>
+                <% end %>
+              </ol>
+        </div>
+        <div class="card-myspace">
+            <h4>Pending bookings</h4>
+              <ol>
+                <% @future_bookings.each do |booking| %>
                 <li><%=booking.space.name%></li>
-              <% end %>
-            </ol>
+                <% end %>
+              </ol>
+        </div>
       </div>
-      <div class="card-myspace">
-          <h4>Pending bookings</h4>
-            <ol>
-              <% @future_bookings.each do |booking| %>
-              <li><%=booking.space.name%></li>
-              <% end %>
-            </ol>
-      </div>
-      <div class="card-myspace">
-        <h4>Past bookings</h4>
-          <ol>
-            <% @past_bookings.each do |booking| %>
-            <li> <%=booking.space.name%></li>
-            <% end %>
-          </ol>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+
+  </div>
 </div>
-
-</div>
-
-
