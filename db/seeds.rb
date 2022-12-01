@@ -44,7 +44,7 @@ puts "creating spaces"
       name: "Makers of Barcelona",
       address: "Calle Bailen 11, Bajos 08010 Barcelona",
       description: "A pioneer in Barcelona coworking for creatives, makers and 3D printing",
-      price: rand(10..30),
+      price: rand(10..30)
     )
     spaceone.image.attach(io: file, filename: 'spaceone.jpg', content_type: 'image/jpg')
     spaceone.save!

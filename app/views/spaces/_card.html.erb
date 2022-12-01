@@ -1,5 +1,5 @@
 <%= link_to space_path(space) do %>
-  <div class="card-trip rounded">
+  <div class="card-trip remove-text-decoration">
       <% if space.image.attached? %>
         <%= cl_image_tag space.image.key %>
       <% else %>
