@@ -16,9 +16,9 @@
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0"><div class="text-center">
   </div>
 
-      <div class="container mt-4 ">
+      <div class="spaces-container mt-4 ">
         <% if @spaces %>
-          <div class="cards p-2">
+          <div class="dash-spaces">
             <% @spaces.each do |space| %>
               <div class="card-myspace border border-dark border-3 p-3 rounded">
                 <h4><%= space.name %></h4>
@@ -73,7 +73,7 @@
   </div>
   </div>
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0"><div class="container text-center ">
-      <div class="spaces-container mt-4 ">
+      <div class="container mt-4 ">
         <% if @bookings %>
           <div class="cards d-grid p-2">
             <div class="card-myspace border border-dark border-3 p-3 rounded">
