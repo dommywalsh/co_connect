@@ -65,3 +65,18 @@
 .form-control{
   border-color: #DDCE8D;
 }
+
+.btn-dash {
+  border-radius: 5px;
+  padding: 10px 35px;
+  border: none;
+  font-size: 18px;
+  opacity: 50%;
+}
+
+.btn-dash.active {
+  background-color: rgb(232, 181, 72);
+  border-radius: 5px;
+  padding: 10px 35px;
+  opacity: 100%;
+}
