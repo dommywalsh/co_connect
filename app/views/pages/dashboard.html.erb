@@ -73,30 +73,28 @@
   </div>
   </div>
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0"><div class="container text-center ">
-
-    <div class="spaces-container mt-4 ">
-      <% if @bookings %>
-        <div class="cards d-grid p-2">
-          <div class="card-myspace border border-dark border-3 p-3 rounded">
-              <h4>Confirmed bookings:</h4>
-                <ol>
-                  <% @current_bookings.each do |booking| %>
+      <div class="spaces-container mt-4 ">
+        <% if @bookings %>
+          <div class="cards d-grid p-2">
+            <div class="card-myspace border border-dark border-3 p-3 rounded">
+                <h4>Confirmed bookings:</h4>
+                  <ol>
+                    <% @current_bookings.each do |booking| %>
+                      <li><%=booking.space.name%> | Dates: <%=booking.start_date%> - <%=booking.end_date%></li>
+                    <% end %>
+                  </ol>
+            </div>
+            <div class="card-myspace border border-dark border-3 p-3 rounded">
+                <h4>Pending bookings:</h4>
+                  <ol>
+                    <% @future_bookings.each do |booking| %>
                     <li><%=booking.space.name%> | Dates: <%=booking.start_date%> - <%=booking.end_date%></li>
-                  <% end %>
-                </ol>
+                    <% end %>
+                  </ol>
+            </div>
           </div>
-          <div class="card-myspace border border-dark border-3 p-3 rounded">
-              <h4>Pending bookings:</h4>
-                <ol>
-                  <% @future_bookings.each do |booking| %>
-                  <li><%=booking.space.name%> | Dates: <%=booking.start_date%> - <%=booking.end_date%></li>
-                  <% end %>
-                </ol>
-          </div>
-        </div>
-      <% end %>
-    </div>
-
+        <% end %>
+      </div>
     </div>
   </div>
   </div>
