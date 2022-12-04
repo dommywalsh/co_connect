@@ -17,5 +17,9 @@
 }
 
 .dash-spaces {
-  width: 565px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 32px;
+  width: 80%;
+  margin-top: 12px;
 }
