@@ -9,9 +9,9 @@ spaces on their dashboard, accepting or rejecting any booking requests.
 
 The main technologies implemented were:
 
-Ruby on Rails
-HTML & CSS
-Bootstrap
-PostgresQL
-Heroku
+Ruby on Rails,
+HTML & CSS,
+Bootstrap,
+PostgresQL,
+Heroku, &
 Git & Github
