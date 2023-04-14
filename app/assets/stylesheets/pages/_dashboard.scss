@@ -1,0 +1,25 @@
+.dashboard-container {
+  padding: 25px
+}
+
+.nav-pills-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 25px;
+}
+
+.spaces-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dash-spaces {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 32px;
+  width: 80%;
+  margin-top: 12px;
+}
