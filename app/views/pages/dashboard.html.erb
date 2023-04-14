@@ -16,7 +16,9 @@
                 <% if space.bookings.pending.first %>
                   <% space.bookings.pending.each do |booking|%>
                       <div class="card-product">
-                          <%= cl_image_tag booking.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                          <% if booking.user.avatar.key.present? %>
+                            <%= cl_image_tag booking.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                          <% end %>
                           <div class="card-product-infos">
                             <h2><%= booking.user.first_name.capitalize %> <%= booking.user.last_name.capitalize %></h2>
                             <p>Dates: From <%= booking.start_date.strftime("%d %B") %> to: <%= booking.end_date.strftime("%d %B") %> for $<%= booking.price %></p>

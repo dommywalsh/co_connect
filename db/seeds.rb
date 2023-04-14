@@ -25,7 +25,7 @@ User.create(
 )
 
 User.create(
-  email: Faker::Internet.email,
+  email: "joe@gmail.com",
   password: "123456",
   first_name: Faker::Name.first_name ,
   last_name: Faker::Name.last_name ,
@@ -84,7 +84,7 @@ puts "creating spaces"
     spacefour.image.attach(io: file, filename: 'spacefour.jpg', content_type: 'image/jpg')
     spacefour.save!
 
-    file = URI.open("https://felisacowork.com/wp-content/uploads/2017/09/pgina-galera-imgenes-para-clicar-2-felisa-cowork-e1516362511251.jpg")
+    file = URI.open("https://i1.wp.com/aticco.com/wp-content/uploads/2020/06/coworking-barcelona.jpg")
     spacefive = Space.create(
       user: User.all.sample,
       name: "Felisa CoWork",
@@ -140,7 +140,7 @@ puts "creating spaces"
     spacenine.image.attach(io: file, filename: 'spacenine.jpg', content_type: 'image/jpg')
     spacenine.save!
 
-    file = URI.open("https://coworkingspain.es/sites/default/files/coworking/img8205.png")
+    file = URI.open("https://coworker.imgix.net/photos/netherlands/amsterdam/tsh-collab-amsterdam-west/7-1537944550.jpg?w=1200&h=0&q=90&auto=format,compress&fit=crop&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle")
     spaceten = Space.create(
       user: User.all.sample,
       name: "Depot Lab",
