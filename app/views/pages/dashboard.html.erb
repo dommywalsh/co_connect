@@ -13,94 +13,98 @@
   </div>
 
   <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0"><div class="text-center">
-  </div>
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+      <div class="text-center">
+      </div>
 
-      <div class="spaces-container mt-4 ">
+      <div class="spaces-container mt-4">
         <% if @spaces %>
-          <div class="dash-spaces">
-            <% @spaces.each do |space| %>
-              <div class="card-myspace border border-dark border-3 p-3 rounded">
-                <h4><%= space.name %></h4>
-                  <%# booking requests %>
-                <div>
-                  <h6 class="text-dark mt-4" >Booking Requests:</h6>
-                  <% if space.bookings.pending.first %>
-                    <% space.bookings.pending.each do |booking|%>
-                        <div class="card-product">
-                            <%= cl_image_tag booking.user.avatar.key, class: "card-trip-user avatar-bordered" %>
-                            <div class="card-product-infos">
-                              <h2><%= booking.user.first_name.capitalize %> <%= booking.user.last_name.capitalize %></h2>
-                              <p>Dates: From <%= booking.start_date.strftime("%d %B") %> to: <%= booking.end_date.strftime("%d %B") %> for $<%= booking.price %></p>
-                              <p class="mt-2">Booked on: <%= booking.created_at.strftime("%d %B") %></p>
-                            </div>
-                          <div>
-                            <p class="remove-text-decoration"><%= link_to "✅", accept_booking_path(booking), data: {turbo_method: :patch} %></p>
-                            <p class="remove-text-decoration"><%= link_to "❌", reject_booking_path(booking), data: {turbo_method: :patch} %></p>
-                          </div>
-                        </div>
-                    <% end %>
-                  <% else %>
-                        <div class="card-product">
-                            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAHoAegMBIgACEQEDEQH/xAAbAAEAAwEBAQEAAAAAAAAAAAAABAUGAwIBB//EADgQAAICAQEFBAcGBgMAAAAAAAABAgMEEQUSITFxE0FRYRQyUmKRwdEiM3OCobEjNFSBkuEkQkP/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A/cQAAAPjaXMD6Cuytq1V6xpXaSXf3FbdnZF3O1pezHggNBOyEPXnGPV6Hj0vG/qKv80ZkAaiF9U/UshLpJM6GTO1OTdS/wCHbJLw14AaYFTjbW4qORD80foWldkLYKdclKL70B6AAAAAAD43ogPNtkaoOc5KMVzbKLNzp5LcY6xq7l49RtHLeTZuxf8ACjyXj5kMAATMLAnlLf1Ua1LR+L6AQwaSnCx6VpGqOvi+LE8LGslvSpjr5cAM2DQ2bOxpQcY1qL7pLmiDkbJddTnVNza4uLWmvQCsO2Nk2Y096t9U+TOIA0mJlV5Ne9B6NetF80SDMY988e1WVviuafevA0ePdG+qNkOTXwA6AAAV22Mjs6VTF/as5+SLEzm0be1y7H3Re6uiAjAAAaXCr7LFqh7qb6mafJmqh6keiA9AAAGAwMxk1urIshJ6tS5+JyJO0XrnXdfkRgBYbHyOzudUn9mfLqV59UnFqUeaeqA1YPFNitqhYuUkmewPFstyqc/ZTZluppsz+Uu/Dl+xmQAAAGlwp7+JVL3UZo1VUlKuMlyaTQHoAAAABmcx65dz99nEk7Ralm3Nct7T9CMAAAF/sie9hRXstr5/MmldsP8AlZ/ifJFiBzyI79FkPai1+hlzWGYyq+xybIdylw6AcgAALrZGU7IdhJca1wevcUpL2Xb2WbDwmnFgaEAACPnZHo1Ds3dXrol5kgqduWcK6vzv9vqBVSk5Scm+LerPgAAAAXuxo7uHr7Um/l8ieccOrscauvvUePU7ACp23R6t8V7svkWx5thG2uUJrWMlowMqCVZg3LJdMEm+abemq8SVTsiT43WJeUVr+oFWScCuyWTVKMJOKmtWlwRc07PxauKrUn4y4klJLkB9AAAp9tVWSujOMJOKjo2kXAAyfMGluxKLvvK4t+K4MhXbHi+NNjXlLiBTkvZtDvyY6r7EPtS+h5vwr6HFSinvPSO6+bLrBxli07vOb4yfmBJAAAAAccihXRXHdnF6wku5nmi9uXY3rcuXd3S80SDndTC6O7ZHVd3imB0BE/5GPzTvr8V66+p0ryqbHoppS9mXBr+zA7gAAAc7b6qVrZZGPVgdDlffChLe1cn6sFxcuhyd113DHr3Yv/0sWnwXNnunGjU3NtztfOcuf+kB5opm7O3v+8/6x7oL6+ZJAAAAAAAAAAHi2mu1aWQjLqj2AI3oVcfu521+UZvT4D0Wfdl3/GP0JIAjehp+vffPyc9P2PdWNTU9YVxT8dNX8TsAAAAAAAAAP//Z" class="card-trip-user avatar-bordered" />
-                            <div class="card-product-infos">
-                              <h2>No booking requests</h2>
-                              <p>sorry for you</p>
-                            </div>
-                        </div>
-                  <% end %>
+        <div class="dash-spaces">
+          <% @spaces.each do |space| %>
+          <div class="card-myspace border border-dark border-3 p-3 rounded">
+            <h4><%= space.name %></h4>
+            <%# booking requests %>
+            <div>
+              <h6 class="text-dark mt-4">Booking Requests:</h6>
+              <% if space.bookings.pending.first %>
+              <% space.bookings.pending.each do |booking|%>
+              <div class="card-product">
+                <% if booking.user.avatar.key.present? %>
+                <%= cl_image_tag booking.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                <% end %>
+                <div class="card-product-infos">
+                  <h2><%= booking.user.first_name.capitalize %> <%= booking.user.last_name.capitalize %></h2>
+                  <p>Dates: From <%= booking.start_date.strftime("%d %B") %> to: <%= booking.end_date.strftime("%d %B") %> for $<%= booking.price %></p>
+                  <p class="mt-2">Booked on: <%= booking.created_at.strftime("%d %B") %></p>
                 </div>
-                <%# confirmed/current bookings %>
                 <div>
-                  <h6 class="text-dark mt-4">Confirmed Bookings:</h6>
-                <% space.bookings.confirmed.each do |booking|%>
-                      <div class="card-product">
-                          <%= cl_image_tag booking.user.avatar.key, class: "card-trip-user avatar-bordered" %>
-                          <div class="card-product-infos">
-                            <h2><%= booking.user.first_name.capitalize %> <%= booking.user.last_name.capitalize %></h2>
-                            <p>Booking confirmed on: <%= booking.updated_at.strftime("%d %B") %></p>
-                          </div>
-                      </div>
-                  <% end %>
+                  <p class="remove-text-decoration"><%= link_to "✅", accept_booking_path(booking), data: {turbo_method: :patch} %></p>
+                  <p class="remove-text-decoration"><%= link_to "❌", reject_booking_path(booking), data: {turbo_method: :patch} %></p>
                 </div>
               </div>
-              <% end%>
+              <% end %>
+              <% else %>
+              <div class="card-product">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAHoAegMBIgACEQEDEQH/xAAbAAEAAwEBAQEAAAAAAAAAAAAABAUGAwIBB//EADgQAAICAQEFBAcGBgMAAAAAAAABAgMEEQUSITFxE0FRYRQyUmKRwdEiM3OCobEjNFSBkuEkQkP/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A/cQAAAPjaXMD6Cuytq1V6xpXaSXf3FbdnZF3O1pezHggNBOyEPXnGPV6Hj0vG/qKv80ZkAaiF9U/UshLpJM6GTO1OTdS/wCHbJLw14AaYFTjbW4qORD80foWldkLYKdclKL70B6AAAAAAD43ogPNtkaoOc5KMVzbKLNzp5LcY6xq7l49RtHLeTZuxf8ACjyXj5kMAATMLAnlLf1Ua1LR+L6AQwaSnCx6VpGqOvi+LE8LGslvSpjr5cAM2DQ2bOxpQcY1qL7pLmiDkbJddTnVNza4uLWmvQCsO2Nk2Y096t9U+TOIA0mJlV5Ne9B6NetF80SDMY988e1WVviuafevA0ePdG+qNkOTXwA6AAAV22Mjs6VTF/as5+SLEzm0be1y7H3Re6uiAjAAAaXCr7LFqh7qb6mafJmqh6keiA9AAAGAwMxk1urIshJ6tS5+JyJO0XrnXdfkRgBYbHyOzudUn9mfLqV59UnFqUeaeqA1YPFNitqhYuUkmewPFstyqc/ZTZluppsz+Uu/Dl+xmQAAAGlwp7+JVL3UZo1VUlKuMlyaTQHoAAAABmcx65dz99nEk7Ralm3Nct7T9CMAAAF/sie9hRXstr5/MmldsP8AlZ/ifJFiBzyI79FkPai1+hlzWGYyq+xybIdylw6AcgAALrZGU7IdhJca1wevcUpL2Xb2WbDwmnFgaEAACPnZHo1Ds3dXrol5kgqduWcK6vzv9vqBVSk5Scm+LerPgAAAAXuxo7uHr7Um/l8ieccOrscauvvUePU7ACp23R6t8V7svkWx5thG2uUJrWMlowMqCVZg3LJdMEm+abemq8SVTsiT43WJeUVr+oFWScCuyWTVKMJOKmtWlwRc07PxauKrUn4y4klJLkB9AAAp9tVWSujOMJOKjo2kXAAyfMGluxKLvvK4t+K4MhXbHi+NNjXlLiBTkvZtDvyY6r7EPtS+h5vwr6HFSinvPSO6+bLrBxli07vOb4yfmBJAAAAAccihXRXHdnF6wku5nmi9uXY3rcuXd3S80SDndTC6O7ZHVd3imB0BE/5GPzTvr8V66+p0ryqbHoppS9mXBr+zA7gAAAc7b6qVrZZGPVgdDlffChLe1cn6sFxcuhyd113DHr3Yv/0sWnwXNnunGjU3NtztfOcuf+kB5opm7O3v+8/6x7oL6+ZJAAAAAAAAAAHi2mu1aWQjLqj2AI3oVcfu521+UZvT4D0Wfdl3/GP0JIAjehp+vffPyc9P2PdWNTU9YVxT8dNX8TsAAAAAAAAAP//Z" class="card-trip-user avatar-bordered" />
+                <div class="card-product-infos">
+                  <h2>No booking requests</h2>
+                  <p>sorry for you</p>
+                </div>
+              </div>
+              <% end %>
+            </div>
+            <%# confirmed/current bookings %>
+            <div>
+              <h6 class="text-dark mt-4">Confirmed Bookings:</h6>
+              <% space.bookings.confirmed.each do |booking|%>
+              <div class="card-product">
+                <% if booking.user.avatar.key.present? %>
+                <%= cl_image_tag booking.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                <% end %>
+                <div class="card-product-infos">
+                  <h2><%= booking.user.first_name.capitalize %> <%= booking.user.last_name.capitalize %></h2>
+                  <p>Booking confirmed on: <%= booking.updated_at.strftime("%d %B") %></p>
+                </div>
+              </div>
+              <% end %>
+            </div>
           </div>
+          <% end %>
+        </div>
         <% else %>
-          <h4>You aint got no Spaces</h4>
-        <% end %>
-      </div>
-  </div>
-  </div>
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0"><div class="container text-center ">
-      <div class="container mt-4 ">
-        <% if @bookings %>
-          <div class="cards d-grid p-2">
-            <div class="card-myspace border border-dark border-3 p-3 rounded">
-                <h4>Confirmed bookings:</h4>
-                <hr>
-                  <ol>
-                    <% @current_bookings.each do |booking| %>
-                      <li><h5><%=booking.space.name%></h5></li>
-                      <p>Dates: <%=booking.start_date%> to <%=booking.end_date%></p>
-                    <% end %>
-                  </ol>
-            </div>
-            <div class="card-myspace border border-dark border-3 p-3 rounded">
-                <h4>Pending bookings:</h4>
-                <hr>
-                  <ol>
-                    <% @future_bookings.each do |booking| %>
-                    <li><h5><%=booking.space.name%></h5></li>
-                    <p>Dates: <%=booking.start_date%> to <%=booking.end_date%></p>
-                    <% end %>
-                  </ol>
-            </div>
-          </div>
+        <h4>You ain't got no Spaces</h4>
         <% end %>
       </div>
     </div>
-  </div>
-  </div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+      <div class="container text-center">
+        <div class="container mt-4">
+          <% if @bookings %>
+          <div class="cards d-grid p-2">
+            <div class="card-myspace border border-dark border-3 p-3 rounded">
+              <h4>Confirmed bookings:</h4>
+              <hr>
+              <ol>
+                <% @current_bookings.each do |booking| %>
+                <li><h5><%=booking.space.name%></h5></li>
+                <p>Dates: <%=booking.start_date%> to <%=booking.end_date%></p>
+                <% end %>
+              </ol>
+            </div>
+            <div class="card-myspace border border-dark border-3 p-3 rounded">
+              <h4>Pending bookings:</h4>
+              <hr>
+              <ol>
+                <% @future_bookings.each do |booking| %>
+                <li><h5><%=booking.space.name%></h5></li>
+                <p>Dates: <%=booking.start_date%> to <%=booking.end_date%></p>
+                <% end %>
+              </ol>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
