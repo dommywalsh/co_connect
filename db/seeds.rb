@@ -38,7 +38,7 @@ puts "#{User.count} users created"
 puts "creating spaces"
 
 # User.all.each do |user|
-    file = URI.open("https://www.mydeskhub.com/wp-content/uploads/2017/06/Mob-H-27-scaled.jpg")
+    file = URI.open("https://s3-eu-west-1.amazonaws.com/spaceson/uploads/room_image/image/19091/slider_IMG_1327-min.jpg")
     spaceone = Space.new(
       user: User.all.sample,
       name: "Makers of Barcelona",
